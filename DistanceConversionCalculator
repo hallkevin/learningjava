@@ -4,6 +4,8 @@ class inchtocm {
 		
 		System.out.println("What conversion do you want to do? " + "Choice #1: Inches to Centimeters? " + "Choice #2: Centimeters to Inches? " + "Choice #3: Miles to Feet? " 
 		+ "Choice #4: Feet to Miles? " + "Choice 5: Feet to Meters? " + "Choice #6: Meters to Feet?");
+		System.out.println("Choice 7: Miles to Kilometers? " + "Choice 8: Kilometers to Miles? " + "Choice 9: Feet to Kilometers? " + "Choice 10: Kilometers to Feet? " 
+		+ "Choice #11: Miles to Meters? " + "Choice #12: Meters to Miles?");
 		
 		Scanner selection = new Scanner(System.in);
 		
@@ -67,11 +69,71 @@ class inchtocm {
 				System.out.println("Give meters value");
 				Scanner MetersFeet = new Scanner(System.in);
 				meters = MetersFeet.nextDouble();
-				meters *= 0.3048;
+				meters /= 0.3048;
 				System.out.println("That is equivalent to " + meters + " feet");
 				break;
+			case 7:
+				//Miles to Kilometers
+				double mis;
+				System.out.println("the miles to kilometers calculator");
+				System.out.println("Give miles value");
+				Scanner MisKilom = new Scanner(System.in);
+				mis = MisKilom.nextDouble();
+				mis *= 1.60934;
+				System.out.println("That is equivalent to " + mis + " kilometers");
+				break;
+			case 8:
+				//Kilometers to Miles
+				double kilom;
+				System.out.println("the kilometers to miles calculator");
+				System.out.println("Give kilometers value");
+				Scanner KilomMis = new Scanner(System.in);
+				kilom = KilomMis.nextDouble();
+				kilom /= 1.60934;
+				System.out.println("That is equivalent to " + kilom + " miles");
+				break;
+			case 9:
+				//Feet to Kilometers
+				double fet;
+				System.out.println("the feet to kilometers calculator");
+				System.out.println("Give feet value");
+				Scanner FetKilomet = new Scanner(System.in);
+				fet = FetKilomet.nextDouble();
+				fet *= 0.0003048;
+				System.out.println("That is equivalent to " + fet + " kilometers");
+				break;
+			case 10:
+				//Kilometers to Feet
+				double kilomet;
+				System.out.println("the kilometers to feet calculator");
+				System.out.println("Give kilometers value");
+				Scanner KilometFet = new Scanner(System.in);
+				kilomet = KilometFet.nextDouble();
+				kilomet /= 0.0003048;
+				System.out.println("That is equivalent to " + kilomet + " feet");
+				break;
+			case 11:
+				//Miles to Meters
+				double mils;
+				System.out.println("the miles to meters calculator");
+				System.out.println("Give miles value");
+				Scanner MilsMets = new Scanner(System.in);
+				mils = MilsMets.nextDouble();
+				mils *= 0.3048;
+				System.out.println("That is equivalent to " + mils + " meters");
+				break;
+			case 12:
+				//Meters to Miles
+				double mets;
+				System.out.println("the meters to miles calculator");
+				System.out.println("Give meters value");
+				Scanner MetrsMils = new Scanner(System.in);
+				mets = MetrsMils.nextDouble();
+				mets /= 0.3048;
+				System.out.println("That is equivalent to " + mets + " miles");
+				break;
 			default: System.out.println("That is not an option, "
-				+ "select a number choice between 1 and 6");
+				+ "select a number choice between 1 and 12");
 				break;
 		}
 			selection.close();		
