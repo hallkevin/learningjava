@@ -1,0 +1,79 @@
+import java.util.Scanner;
+class inchtocm {
+	public static void main(String args[]){
+		
+		System.out.println("What conversion do you want to do? " + "Choice #1: Inches to Centimeters? " + "Choice #2: Centimeters to Inches? " + "Choice #3: Miles to Feet? " 
+		+ "Choice #4: Feet to Miles? " + "Choice 5: Feet to Meters? " + "Choice #6: Meters to Feet?");
+		
+		Scanner selection = new Scanner(System.in);
+		
+		int conversion = selection.nextInt();
+		
+		switch (conversion) {
+			case 1:
+				//Inches to Centimeters
+				double inch;
+				System.out.println("the inch to centimeter calculator");
+				System.out.println("Give inch value");
+				Scanner InchCenti = new Scanner(System.in);
+				inch = InchCenti.nextDouble();
+				inch *= 2.54;
+				System.out.println("That is equivalent to " + inch + " centimeters");
+				break;
+			case 2:
+				//Centimeters to Inches
+				double centimeter;
+				System.out.println("the centimeter to inch calculator");
+				System.out.println("Give centimeter value");
+				Scanner CentiInch = new Scanner(System.in);
+				centimeter = CentiInch.nextDouble();
+				centimeter /= 2.54;
+				System.out.println("That is equivalent to " + centimeter + " inches");
+				break;
+			case 3:
+				//Miles to Feet
+				double miles;
+				System.out.println("the mile to feet calculator");
+				System.out.println("Give mile value");
+				Scanner MilesFeet = new Scanner(System.in);
+				miles = MilesFeet.nextDouble();
+				miles *= 5280;
+				System.out.println("That is equivalent to " + miles + " feet");
+				break;
+			case 4:
+				//Feet to Miles
+				double feet;
+				System.out.println("the feet to miles calculator");
+				System.out.println("Give feet value");
+				Scanner FeetMiles = new Scanner(System.in);
+				feet = FeetMiles.nextDouble();
+				feet /= 5280;
+				System.out.println("That is equivalent to " + feet + " miles");
+				break;
+			case 5:
+				//Feet to Meters
+				double ft;
+				System.out.println("the feet to meters calculator");
+				System.out.println("Give feet value");
+				Scanner FeetMeters = new Scanner(System.in);
+				ft = FeetMeters.nextDouble();
+				ft *= 0.3048;
+				System.out.println("That is equivalent to " + ft + " meters");
+				break;
+			case 6:
+				//Meters to Feet
+				double meters;
+				System.out.println("the meters to feet calculator");
+				System.out.println("Give meters value");
+				Scanner MetersFeet = new Scanner(System.in);
+				meters = MetersFeet.nextDouble();
+				meters *= 0.3048;
+				System.out.println("That is equivalent to " + meters + " feet");
+				break;
+			default: System.out.println("That is not an option, "
+				+ "select a number choice between 1 and 6");
+				break;
+		}
+			selection.close();		
+	}
+}
