@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Statistics {
+	public static void main(String[] args){
+		int plateAppearances, atBats, walks, hits, singles, doubles, triples, homeruns;
+		Scanner scan = new Scanner(System.in);
+		
+		//Gather Stats from Season
+		System.out.println("Enter number of Plate Appearances");
+		plateAppearances = scan.nextInt();
+		System.out.println("Enter number of Walks");
+		walks = scan.nextInt();
+		atBats = plateAppearances - walks;
+		System.out.println("Enter number of Singles");
+		singles = scan.nextInt();
+		System.out.println("Enter number of Doubles");
+		doubles = scan.nextInt();
+		System.out.println("Enter number of Triples");
+		triples = scan.nextInt();
+		System.out.println("Enter number of Home Runs");
+		homeruns = scan.nextInt();
+		//Find total number of hits
+		hits = singles + doubles + triples + homeruns;
+		
+		//Batting Average
+		System.out.println(findBattingAverage(hits, atBats));
+		//On Base Percentage
+		System.out.println(findOnBasePercentage(walks, hits, plateAppearances));
+		//Slugging Percentage
+		
+		
+		scan.close();
+	}
+	
+	public static double findBattingAverage(int x, int y){
+		return (double) x / y;
+	}
+	public static double findOnBasePercentage(int x, int y, int z){
+		return (double) (x+y) / z;
+	}
+	public static double findSluggingPercentage(int x, int y, int z){
+		return x;
+	}
+}
