@@ -2,42 +2,56 @@ import java.util.Scanner;
 
 public class Statistics {
 	public static void main(String[] args) {
-		//DecimalFormat df = new DecimalFormat("#000");
 		
 		Scanner scan = new Scanner(System.in);
-		int walks, ibb, hbp, sacFlys,sacBunts, reachedOnError,
+		int plateAppearances, walks, ibb, hbp, sacFlys,sacBunts, reachedOnError, strikeouts,
 		atBats, hits, singles,doubles, triples, homeruns;
 		
 		// Gather Statistics from Season
 		System.out.println("Enter number of At Bats");
 		atBats = scan.nextInt();
+		
+		System.out.println("Enter number of Strikeouts");
+		strikeouts = scan.nextInt();
+		
 		System.out.println("Enter number of Walks");
 		//Does NOT include intentional walks
 		walks = scan.nextInt();
+		
 		System.out.println("Enter number of Intentional Walks");
 		ibb = scan.nextInt();
+		
 		System.out.println("Enter number of Hit by Pitches");
 		hbp = scan.nextInt();
+		
 		System.out.println("Enter number of Sacrifice Flies");
 		sacFlys = scan.nextInt();
+		
 		System.out.println("Enter number of Sacrifice Bunts");
 		sacBunts = scan.nextInt();
+		
 		System.out.println("Enter number of times Reached on Error");
 		reachedOnError = scan.nextInt();
+		
 		System.out.println("Enter number of Singles");
 		singles = scan.nextInt();
+		
 		System.out.println("Enter number of Doubles");
 		doubles = scan.nextInt();
+		
 		System.out.println("Enter number of Triples");
 		triples = scan.nextInt();
+		
 		System.out.println("Enter number of Home Runs");
 		homeruns = scan.nextInt();
+		
+		plateAppearances = getPlateAppearances(atBats, walks, ibb, hbp, sacFlys, sacBunts, reachedOnError);
 		
 		// Find total number of hits
 		hits = singles + doubles + triples + homeruns;
 		
 		// Total Plate Appearances
-		System.out.printf("Plate Appearances ", getPlateAppearances(atBats, walks, ibb, hbp, sacFlys, sacBunts, reachedOnError));
+		System.out.println("Plate Appearances " + plateAppearances);
 		
 		// Find total bases
 		System.out.printf("Total Bases %d\n", getTotalBases(singles, doubles, triples, homeruns));
@@ -51,9 +65,20 @@ public class Statistics {
 		// Slugging Percentage
 		System.out.printf("Slugging Percentage %.3f\n", getSluggingPercentage(atBats, singles, doubles, triples, homeruns));
 		
-		// OPS
+		// On Base Plus Slugging
 		System.out.printf("OPS %.3f\n", getOPS(hits, walks, hbp, sacFlys, atBats, singles, doubles, triples, homeruns));
 		
+		// Strikeout Percentage
+		System.out.printf("Strikeout Percentage %.1f", getStrikeoutPercentage(strikeouts, atBats));
+		System.out.println("%");
+		
+		// Base on Balls Percentage
+		System.out.printf("Base on Balls Percentage %.1f", getBaseOnBallsPercentage(walks, plateAppearances));
+		System.out.println("%");
+		
+		double runsCreated = getOnBasePercentage(hits, walks, hbp, sacFlys, atBats) * getTotalBases(singles, doubles, triples, homeruns);
+		System.out.printf("%.1f", runsCreated);
+		System.out.println(" runs created");
 		scan.close();
 	}
 	
@@ -83,4 +108,14 @@ public class Statistics {
 	public static int getPlateAppearances(int atBats, int walks, int ibb, int hbp, int sacFlys, int sacBunts, int reachedOnError){
 		return atBats + walks + hbp + sacFlys + sacBunts + reachedOnError;
 	}
+	
+	public static double getStrikeoutPercentage(int strikeouts, int atBats){
+		return ((double) strikeouts / atBats) * 100;
+	}
+
+	public static double getBaseOnBallsPercentage(int walks, int plateAppearances){
+		return ((double) walks / plateAppearances) * 100;
+	}
+	
+	
 }
